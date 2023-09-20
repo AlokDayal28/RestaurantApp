@@ -1,0 +1,19 @@
+<div style="text-align:center;width:500px;">
+  <h1>
+      {{title}}!
+  </h1>
+<table>
+  <tr *ngFor="let item of this.lstCustomer">
+  <td>{{item.CustomerID}}</td>
+  <td>{{item.Name}}</td>
+  </tr>
+</table>
+  <div style="float:left;padding:10px;margin:0 auto;" *ngIf="this.custService.listCustomer">
+    <select [(ngModel)]="custId" class="form-control">
+      <option value="0">Please Select</option>
+      <option  *ngFor="let cust of this.lstCustomer" [value]="cust.CustomerID">{{ cust.Name }}</option>
+  </select>
+
+      <p>{{ custId }}</p>
+  </div>
+</div>
